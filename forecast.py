@@ -24,6 +24,6 @@ def day_forecast(city):
         weather = data['weather'][0]['description']
         temp = data['main']['temp']
 
-        current = str(temp) + '°,' + ' ' + weather
+        current = str(temp) + u"\u00B0" + ' ' + weather
 
         return current
