@@ -25,5 +25,3 @@ def day_forecast(city):
         current = str(temp) + u"\u00B0" + ' ' + weather
 
         return current
-
-print(day_forecast('Madrid'))
