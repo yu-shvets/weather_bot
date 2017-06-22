@@ -1,4 +1,4 @@
-import urllib.request
+import requests
 import json
 from cities import city_list
 
@@ -15,11 +15,9 @@ def day_forecast(city):
     else:
         url = URL_API + city + '&mode=json&units=' + UNIT + '&APPID=' + API_KEY
 
-        request = urllib.request.Request(url)
+        response = requests.get(url)
 
-        response = urllib.request.urlopen(request)
-
-        data = json.loads(response.read().decode('utf-8'))
+        data = json.loads(response.text)
 
         weather = data['weather'][0]['description']
         temp = data['main']['temp']
@@ -27,3 +25,5 @@ def day_forecast(city):
         current = str(temp) + u"\u00B0" + ' ' + weather
 
         return current
+
+print(day_forecast('Madrid'))
